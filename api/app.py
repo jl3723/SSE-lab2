@@ -12,9 +12,6 @@ def process_query(name):
     if name == "asteroids":
         return "Unknown"
 
-    if name == "q":
-        return "dinosaurs"
-
 @app.route("/submit", methods=["POST"])
 def submit():
     input_name = request.form.get("name")
@@ -24,8 +21,4 @@ def submit():
 @app.route("/query", methods=["GET"])
 def handle_query():
     q_query = request.args.get('q')
-    
-    if q_query:
-        process_query(q_query)
-    else:
-        "Nothing"
+    return process_query(q_query)
