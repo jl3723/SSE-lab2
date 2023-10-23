@@ -24,4 +24,8 @@ def submit():
 @app.route("/query", methods=["GET"])
 def handle_query():
     q_query = request.args.get('q')
-    process_query(q_query)
+    
+    if q_query:
+        process_query(q_query)
+    else:
+        "Nothing"
